@@ -1,5 +1,6 @@
 package com.rudecrab.demo.entity;
 
+import com.rudecrab.demo.annotation.ExceptionCode;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
@@ -22,6 +23,7 @@ public class User {
     @ApiModelProperty("用户账号")
     @NotNull(message = "用户账号不能为空")
     @Size(min = 6, max = 11, message = "账号长度必须是6-11个字符")
+    @ExceptionCode(value = 555, message = "自定义错误码")
     private String account;
 
     @ApiModelProperty("用户密码")

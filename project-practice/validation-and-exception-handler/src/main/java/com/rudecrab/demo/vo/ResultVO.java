@@ -1,5 +1,6 @@
 package com.rudecrab.demo.vo;
 
+import com.rudecrab.demo.annotation.ExceptionCode;
 import com.rudecrab.demo.enums.ResultCode;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -26,6 +27,12 @@ public class ResultVO<T> {
     public ResultVO(ResultCode resultCode, T data) {
         this.code = resultCode.getCode();
         this.msg = resultCode.getMsg();
+        this.data = data;
+    }
+
+    public ResultVO(ExceptionCode annotation, T data) {
+        this.code = annotation.value();
+        this.msg = annotation.message();
         this.data = data;
     }
 }
